@@ -1,0 +1,83 @@
+
+/*
+* Header styles
+*/
+.header{
+	background: #15161E;
+	height: 100px;
+	overflow: hidden;
+}
+
+.header .user-placement{
+	position: relative;
+	top: 25px;
+}
+
+.header ul li i{
+	position: absolute;
+	right: 50%;
+	
+}
+
+.header ul{ 
+	position: fixed;
+	left: 550px;	
+}
+
+.header ul li{ 
+	color: white;
+	list-style: none;
+	float: left;
+	margin-top: 25px;
+	margin-right: 70px;
+	
+}
+
+.header ul li :hover{ 
+	color: #5A5A5A;
+	cursor: pointer;
+}
+
+.header ul li h7 :hover{ 
+	color: #5A5A5A;
+	cursor: pointer;
+	
+}
+
+.header ul li i{ 
+	margin-right: -20px;
+	
+}
+
+.user-name {
+	position: absolute;
+    top: 10%;
+    right: 50%
+}
+
+.inline {
+	display: inline;
+}
+
+.inline a {
+	margin-right: 20px;
+}
+
+/* Shadow effect for options btn */
+.hovereffectbtn:hover {
+	-webkit-box-shadow: 0px 0px 37px -7px rgba(255,255,255,1) !important;
+	-moz-box-shadow: 0px 0px 37px -7px rgba(255,255,255,1) !important;
+	box-shadow: 0px 0px 37px -7px rgba(255,255,255,1) !important ; 
+}
+
+/* Top left logo */
+.logo {
+	position: fixed;
+	content:url('../Images/logo.png');
+	width: 50px; 
+	height: 50px; 
+	margin-left: 25px; 
+	margin-top: 25px;
+}
+
+

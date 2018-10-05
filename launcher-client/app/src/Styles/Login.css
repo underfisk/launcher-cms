@@ -1,0 +1,98 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    background-image: url("../Images/background_2.png"); 
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    overflow: hidden !important;
+}
+
+:global(.loginPanel) {
+    overflow: hidden !important;
+    margin-top: 10%;    
+}
+
+:global(.loginDark) {
+    background: #36393f;
+    border-radius: 5px;
+    color: #72767d;
+    font-size: 18px;
+}
+
+:global(.loginDark label) {
+    color: #b9bbbe !important;
+}
+
+:global(.loginDark input) {
+    color: #f6f6f7 !important;
+}
+
+:global(.loginDark span) {
+    text-align: center;
+    color: #f6f6f7;
+    width: 100%;
+    font-size: 26px !important;
+}
+
+:global(.loginDark small) {
+    margin-left: 10px;
+}
+
+:global(.loginDark .register-label){
+    margin-top: 5px;
+    font-size: 16px;
+    position: absolute;
+    margin-left: -13% !important;
+}
+
+:global(.loginDark .register-label a){
+    color: #7289da !important;
+    font-size: 14px;
+    text-transform: capitalize !important;
+}
+
+:global(.loginDark .register-label a:hover){
+    text-decoration: underline !important;
+}
+
+:global(.loginDark .errorMessage) {
+    color: #f04747;
+    font-style: italic;
+    text-transform: none;
+    font-weight: 400;
+}
+:global(.showPassword) {
+    position: absolute;
+    top: 33px;
+    z-index: 3;
+    opacity: .5;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+:global(.showPassword:hover) {
+    opacity: .87;
+}
+
+
+:global(.steam-logo){
+    background-image : url("../Images/steam-logo.png");
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-size:  cover;
+    margin-left: auto;
+    margin-right: 33%;
+    width: 250px;
+    height: 150px;
+    filter: brightness(0) invert(1);
+}
+
+:global(.steam-logo:hover){
+    opacity: .85;
+}

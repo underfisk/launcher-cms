@@ -1,0 +1,31 @@
+.navbar{
+	position: fixed;
+	background: #15161E;
+	background-size: cover;
+	/*width: 400px; */
+	height: 100%;
+	align-items: center;
+	overflow: hidden;
+}
+
+.navbar ul {
+	margin-top: 0px;
+}
+
+.navbar ul :hover{
+	background-color: #6CC918;
+	cursor: pointer;
+}
+
+.navbar ul li{
+	height: 100px;
+	width: 100px;
+	padding-left: 40px;
+	padding-top: 40px;
+	color: white;
+	list-style: none;
+}
+
+.navbar ul .active{
+	border-left: 4px solid #1b5e20;
+}

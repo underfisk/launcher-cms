@@ -1,0 +1,66 @@
+
+
+container{
+	background:url('./../Images/Backgrounds/witcher3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: fixed;
+	left: 100px;
+	width: 100%;
+	height: 100%;
+}
+
+container .games-list{
+	background: #616161;
+	opacity: 0.7;
+	background-size: cover;
+	width: 300px;
+	height: 100%;
+	align-items: center;
+	overflow: auto;
+	border-right: 1px solid #ffffff81;
+}
+
+container .games-list ul{
+	position: relative;
+	color: #ffffff;
+	font-size: 1em;
+}
+
+container .games-list ul li{
+	padding-top: 0px;
+}
+
+container .games-list ul li span{
+	position: relative;
+	top:-10px;
+}
+
+.game-item:hover{
+	background-color: #9e9e9e;
+}
+
+container .games-list ul li img{
+	
+	padding-top: 10px;
+	margin-right: 20px;
+}
+
+container .footer-bar h6{
+	color: #757575;
+}
+
+container .footer-bar p{
+	color: #f5f5f5;
+}
+
+.items-loading{
+	list-style: none;
+	overflow: none;
+	position: relative;
+	top: 7px;
+}
+
+.download-item{
+	color: #FFFFFF;
+}
