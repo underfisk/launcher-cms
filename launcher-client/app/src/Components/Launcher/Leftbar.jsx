@@ -7,23 +7,35 @@ export default class Leftbar extends Component
     constructor(props){
         super(props)
         this.state = {
-          ipcRenderer : this.props.ipcRenderer
+            containerChangeCallback : props.containerChangeCallback
         }
     }
     
    
     render() {
         return (
-            <div className="navbar">
+            <div className="leftbar">
                 <ul>
-                    <li className="tooltipped" data-position="right" data-tooltip="Shop">
+                    <li onClick={() => this.state.containerChangeCallback(0)} className="tooltipped" data-position="right" data-tooltip="Shop">
                         <Icon small>
                             shopping_cart
                         </Icon>
                     </li>
-                    <li className="tooltipped active" data-position="right" data-tooltip="Your Games"><i className="fas fa-list-ul"></i></li>
-                    <li className="tooltipped" data-position="right" data-tooltip="Friends"><i className="fas fa-user-friends"></i></li>
-                    <li className="tooltipped" data-position="right" data-tooltip="Settings"><i className="fas fa-cog"></i></li>
+                    <li onClick={() => this.state.containerChangeCallback(1)} className="tooltipped active" data-position="right" data-tooltip="Your Games">
+                        <Icon small>
+                            list
+                        </Icon>
+                    </li>
+                    <li onClick={() => this.state.containerChangeCallback(2)} className="tooltipped" data-position="right" data-tooltip="Friends">
+                        <Icon small>
+                            group
+                        </Icon>
+                    </li>
+                    <li onClick={() => this.state.containerChangeCallback(3)} className="tooltipped" data-position="right" data-tooltip="Settings">
+                        <Icon small>
+                            settings
+                        </Icon>
+                    </li>
                 </ul>
             </div>
         );

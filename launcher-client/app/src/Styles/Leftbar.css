@@ -1,4 +1,4 @@
-.navbar{
+.leftbar{
 	position: fixed;
 	background: #15161E;
 	background-size: cover;
@@ -8,16 +8,16 @@
 	overflow: hidden;
 }
 
-.navbar ul {
+.leftbar ul {
 	margin-top: 0px;
 }
 
-.navbar ul :hover{
+.leftbar ul :hover{
 	background-color: #6CC918;
 	cursor: pointer;
 }
 
-.navbar ul li{
+.leftbar ul li{
 	height: 100px;
 	width: 100px;
 	padding-left: 40px;
@@ -26,6 +26,6 @@
 	list-style: none;
 }
 
-.navbar ul .active{
+.leftbar ul .active{
 	border-left: 4px solid #1b5e20;
 }

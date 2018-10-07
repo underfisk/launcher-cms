@@ -74,6 +74,7 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
 }
 
 .showPassword:hover {
@@ -137,17 +138,15 @@ body {
     }
   }
 
-container{
-	background:url(witcher3.jpg?f824b1b4cf5d75cb8cbf80d1f2d50beb);
-	background-repeat: no-repeat;
-	background-size: cover;
+.game-container{
 	position: fixed;
 	left: 100px;
-	width: 100%;
-	height: 100%;
+	top: 100px;
+	width: 100vw;
+	height: 100vh;
 }
 
-container .games-list{
+.game-container .games-list{
 	background: #616161;
 	opacity: 0.7;
 	background-size: cover;
@@ -156,38 +155,42 @@ container .games-list{
 	align-items: center;
 	overflow: auto;
 	border-right: 1px solid #ffffff81;
+	position: fixed;
 }
-
-container .games-list ul{
+ .games-list ul{
 	position: relative;
 	color: #ffffff;
 	font-size: 1em;
 }
 
-container .games-list ul li{
+ .games-list ul li{
 	padding-top: 0px;
+	cursor: pointer;
 }
 
-container .games-list ul li span{
+.games-list ul li span{
 	position: relative;
 	top:-10px;
 }
+
 
 .game-item:hover{
 	background-color: #9e9e9e;
 }
 
-container .games-list ul li img{
+.games-list ul li img{
 	
 	padding-top: 10px;
 	margin-right: 20px;
+	width: 50px!important;
+	height: 50px!important;
 }
 
-container .footer-bar h6{
+.game-container .footer-bar h6{
 	color: #757575;
 }
 
-container .footer-bar p{
+.game-container .footer-bar p{
 	color: #f5f5f5;
 }
 
@@ -200,6 +203,17 @@ container .footer-bar p{
 
 .download-item{
 	color: #FFFFFF;
+}
+
+.game-content {
+	background-image: url("https://i.ytimg.com/vi/En-VsTq30wQ/maxresdefault.jpg");
+	background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+	overflow-y: scroll;
+	width: 100vw;
+	height: 100vh;
 }
 /*
 * Header styles
@@ -283,7 +297,7 @@ container .footer-bar p{
 }
 
 
-.navbar{
+.leftbar{
 	position: fixed;
 	background: #15161E;
 	background-size: cover;
@@ -293,16 +307,16 @@ container .footer-bar p{
 	overflow: hidden;
 }
 
-.navbar ul {
+.leftbar ul {
 	margin-top: 0px;
 }
 
-.navbar ul :hover{
+.leftbar ul :hover{
 	background-color: #6CC918;
 	cursor: pointer;
 }
 
-.navbar ul li{
+.leftbar ul li{
 	height: 100px;
 	width: 100px;
 	padding-left: 40px;
@@ -311,6 +325,6 @@ container .footer-bar p{
 	list-style: none;
 }
 
-.navbar ul .active{
+.leftbar ul .active{
 	border-left: 4px solid #1b5e20;
 }

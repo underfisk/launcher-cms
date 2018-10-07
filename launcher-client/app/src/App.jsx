@@ -4,9 +4,7 @@ import GamesLibrary from './Components/Launcher/MainContainers/GamesLibrary';
 import Topbar from './Components/Launcher/Topbar';
 import Leftbar from './Components/Launcher/Leftbar';
 //import Socket from './Socket'
-
-const electron = window.require('electron')
-const ipcRenderer = electron.ipcRenderer;
+import electron from './Electron'
 
 
 export default class App extends Component 
@@ -16,12 +14,25 @@ export default class App extends Component
     super(props)
     this.state = {
       loginVisible: false,
+
       gamesLibraryVisible : true,
+      storeVisible : false,
+      socialVisible : false,
+      settingsVisible : false,
       
-      ipcRenderer : ipcRenderer
       //soon add a loader phase like discord while we wait for component did mount ofc
     }
   }
+
+  OnContainerChange = (container_type) => {
+    console.log("Changing container..")
+    switch(container_type){
+      case 0:
+          //Load the things etc and set the store visible
+      break;
+    }
+  }
+
   /**
    * Wait until the component is mounted
    * 
@@ -30,8 +41,7 @@ export default class App extends Component
   componentDidMount (){
     //maybe check soon if this gives problems and if yes we 
     //use componentWillUnmount to unbind
-    
-    ipcRenderer.on('hasSessionNotifier', (event, args) => {
+    electron.ipcRenderer.on('hasSessionNotifier', (event, args) => {
       if (args.login_needed)
         this.setState({loginVisible: true})
       else
@@ -42,41 +52,10 @@ export default class App extends Component
   }
 
   render() {
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   var elems = document.querySelectorAll('.tooltipped');
-    //   var instances = M.Tooltip.init(elems,{});
-    // });
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   var elems = document.querySelectorAll('.input-field');
-    //   var instances = M.Sidenav.init(elems, {});
-    // });
-  
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   var elems = document.querySelectorAll('.chips');
-    //   var instances = M.Chips.init(elems, {});
-    // });
-  
-    // var chip = {
-    //   tag: 'chip content',
-    //   image: '',
-    // };
-    //   document.addEventListener('DOMContentLoaded', function() {
-    //   var elems = document.querySelectorAll('.fixed-action-btn');
-    //   var instances = M.FloatingActionButton.init(elems, {
-    //   direction: 'left',
-    //   hoverEnabled: false
-    //   });
-    // });
-  
-    //   document.addEventListener('DOMContentLoaded', function() {
-    //   var elems = document.querySelectorAll('.sidenav');
-    //   var instances = M.Sidenav.init(elems, {});
-    // });
-  
     return (
       <div>
         {this.state && this.state.loginVisible ?
-            <Login ipcRenderer={this.state.ipcRenderer}/>
+            <Login/>
         : null }
         {
           /**
@@ -87,9 +66,9 @@ export default class App extends Component
             <GamesLibrary ipcRenderer={this.state.ipcRenderer}/>
           : null
         */}
-          {<Topbar ipcRenderer={this.state.ipcRenderer}/>}
-          {<Leftbar ipcRenderer={this.state.ipcRenderer}/>}
-          {/*<GamesLibrary ipcRenderer={this.state.ipcRenderer}/>*/}
+          {<Topbar/>}
+          {<Leftbar containerChangeCallback={() => this.OnContainerChange()} />}/>}
+          {<GamesLibrary/>}}
       </div>
     );
   }

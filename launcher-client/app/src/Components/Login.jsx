@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { CardTitle, Button, Card, Row, Col, Input, Modal } from 'react-materialize';
 import '../Styles/Login.css'
+import '../Electron'
+
 /**
  * When we make a css and is not applied its because it's on a local 
  * module and we need to make it global
@@ -18,7 +20,6 @@ export default class Login extends Component
     constructor(props){
         super(props)
         this.state = {
-          ipcRenderer : this.props.ipcRenderer,
           usernameError : "",
           passwordError : "",
           passwordInputType : "password",
@@ -72,14 +73,13 @@ export default class Login extends Component
       /**
        * @todo Block every input while requesting
        */
-      
-      this.state.ipcRenderer.send('authentication', {
+      electron.ipcRenderer.send('authentication', {
         user : username,
         pass: password
         //send after the code etc even if is blank but for now is ok
       })
 
-      this.state.ipcRenderer.on('authentication-response', (event, args) => {
+      electron.ipcRenderer.on('authentication-response', (event, args) => {
           console.log("Got a auth answer")
           switch(args.type)
           {

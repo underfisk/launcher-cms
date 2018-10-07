@@ -11,61 +11,61 @@ body {
     overflow: hidden !important;
 }
 
-:global(.loginPanel) {
+.loginPanel {
     overflow: hidden !important;
     margin-top: 10%;    
 }
 
-:global(.loginDark) {
+.loginDark {
     background: #36393f;
     border-radius: 5px;
     color: #72767d;
     font-size: 18px;
 }
 
-:global(.loginDark label) {
+.loginDark label {
     color: #b9bbbe !important;
 }
 
-:global(.loginDark input) {
+.loginDark input {
     color: #f6f6f7 !important;
 }
 
-:global(.loginDark span) {
+.loginDark span {
     text-align: center;
     color: #f6f6f7;
     width: 100%;
     font-size: 26px !important;
 }
 
-:global(.loginDark small) {
+.loginDark small {
     margin-left: 10px;
 }
 
-:global(.loginDark .register-label){
+.loginDark .register-label{
     margin-top: 5px;
     font-size: 16px;
     position: absolute;
     margin-left: -13% !important;
 }
 
-:global(.loginDark .register-label a){
+.loginDark .register-label a{
     color: #7289da !important;
     font-size: 14px;
     text-transform: capitalize !important;
 }
 
-:global(.loginDark .register-label a:hover){
+.loginDark .register-label a:hover{
     text-decoration: underline !important;
 }
 
-:global(.loginDark .errorMessage) {
+.loginDark .errorMessage {
     color: #f04747;
     font-style: italic;
     text-transform: none;
     font-weight: 400;
 }
-:global(.showPassword) {
+.showPassword {
     position: absolute;
     top: 33px;
     z-index: 3;
@@ -74,14 +74,15 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
 }
 
-:global(.showPassword:hover) {
+.showPassword:hover {
     opacity: .87;
 }
 
 
-:global(.steam-logo){
+.steam-logo{
     background-image : url("../Images/steam-logo.png");
     background-position: center center;
     background-repeat:  no-repeat;
@@ -93,6 +94,6 @@ body {
     filter: brightness(0) invert(1);
 }
 
-:global(.steam-logo:hover){
+.steam-logo:hover{
     opacity: .85;
 }

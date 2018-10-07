@@ -20,6 +20,9 @@ app.once("ready", () => {
   console.log("Window is ready");
   // Create a new window
   win = new BrowserWindow({
+    minHeight: 800,
+    minWidth: 1200,
+    
     // Set the initial width to 800px
     width: 1200,
     // Set the initial height to 600px
@@ -69,11 +72,7 @@ app.once("ready", () => {
         .catch(err => {
           console.log(err);
         });
-<<<<<<< HEAD
     });*/
-=======
-    });
->>>>>>> 8c2cc5ba3813d2511275cd8b1b45f943feb031dd
 
 
     win.show()

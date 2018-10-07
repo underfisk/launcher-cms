@@ -7,45 +7,96 @@ export default class GamesLibrary extends Component
     constructor(props){
         super(props)
         this.state = {
-          ipcRenderer : this.props.ipcRenderer
+            background_image: "",
+            gamesListCollapsed : false,
+            active_game: 1,
+            temporaryListOfGames: [{
+                id: 1,
+                name: "The Witcher: Wild Hunt",
+                icon: "https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025",
+                background: "https://i.ytimg.com/vi/En-VsTq30wQ/maxresdefault.jpg",
+                moredata: "etc"
+            },{
+                id: 2,
+                name: "Dota 2",
+                icon: "http://cdn.onlinewebfonts.com/svg/img_348221.png",
+                background: "https://4.bp.blogspot.com/-oYdwqFdrfpY/WlHIkW9tL4I/AAAAAAAABBg/kjtw6LseHao9xVpqc3CZElJo-dBI6BQMQCLcBGAs/s1600/dota2.JPG",
+                moredata: "etc"
+            },{
+                id: 3,
+                name: "CS:GO",
+                icon: "https://cdn170.picsart.com/upscale-238186308048212.png?r1024x1024",
+                background: "http://i.imgur.com/MU2keaB.png",
+                moredata: "etc"
+            }]
+        }
+    }
+
+    componentDidMount(){
+        this.changeBackground(1) //default game
+    }
+
+    changeBackground = (game_id) => {
+        console.log("Chaing background to game id : " + game_id)
+        let img = ""
+        this.state.temporaryListOfGames.forEach( game => {
+            if (game.id === game_id)
+                img = game.background
+        })
+        this.setState({
+            background_image: img
+        })
+    }
+
+    changeActiveGame = (game_id) => {
+        console.log("Changing active game to " + game_id)
+        //Go to redux and look on our immutable manifest data
+        //and seek the id we want
+        //for now make a switch case to test
+        switch(game_id)
+        {
+            case 1:
+                this.changeBackground(1)
+            break;
+            
+            case 2:
+                this.changeBackground(2)
+            break;
+            
+            case 3:
+                this.changeBackground(3)
+            break;
         }
     }
     
     render() {
         return (
-            <div>
-        <div className="row">
+        <div className="game-container">
             {/* Games list */}
             <div className="col s3 games-list">
 				<ul>
-					<li className="truncate avatar game-item">
-					    <img src="https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025"/>
-						<span>The Witcher: Wild Hunt</span>
-					</li>
-					<li className="truncate avatar game-item">
-                    <img src="https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025"/>
-						<span>Far Cry 4</span>
-					</li>
-					<li className="truncate avatar game-item">
-                    <img src="https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025"/>
-						<span>Call of Duty: Black Ops 3</span>
-					</li>
-					<li className="truncate avatar game-item">
-                    <img src="https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025"/>
-						<span>Final Fantasy XV</span>
-					</li>
-					<li className="truncate avatar game-item">
-                    <img src="https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025"/>
-						<span>Tom Clancy's: Rainbow Six Siege</span>
-					</li>
-					<li className="truncate avatar game-item">
-                    <img src="https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025"/>
-						<span>Outlast 2</span>
-					</li>	
+                    {this.state && this.state.temporaryListOfGames.length > 0 ? 
+                        this.state.temporaryListOfGames.map( (game) => 
+                        <li key={game.id} onClick={() => this.changeActiveGame(game.id)} className="truncate avatar game-item">
+                            <img src={game.icon}/>
+                            <span>{game.name}</span>
+                        </li>
+                        )
+                    : null }
 				</ul>
 			</div>
+
+            <div 
+                style={{backgroundImage: `url(${this.state.background_image})`}}
+                className="col s9 game-content">
+
+            </div>
 		</div>
-        
+        );
+      }
+}
+
+{/*
         <div className="col s9">
 		    <div className="row"></div>
             <div className="row">
@@ -117,8 +168,4 @@ export default class GamesLibrary extends Component
                 <h6>Last Played:</h6> <p>03/09/2018</p>
                 </div>
             </div>
-        </div>
-        </div>
-        );
-      }
-}
+        </div>*/}
