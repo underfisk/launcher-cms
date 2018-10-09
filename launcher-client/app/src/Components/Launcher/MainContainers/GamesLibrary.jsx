@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { CardTitle, Button, Card, Row, Col, Input, Modal } from 'react-materialize';
+import { CardTitle, Button, Card, Row, Col, Input, Modal, Slide, Carousel, Icon, ProgressBar} from 'react-materialize';
 import '../../../Styles/GameLibrary.css'
+import NoticeSlider from '../../NoticeSlider';
 
 export default class GamesLibrary extends Component
 {
@@ -10,9 +11,11 @@ export default class GamesLibrary extends Component
             background_image: "",
             gamesListCollapsed : false,
             active_game: 1,
+            version: "Version 1.0.0", //Move this to the active game data
             temporaryListOfGames: [{
                 id: 1,
                 name: "The Witcher: Wild Hunt",
+                logo: "https://vignette.wikia.nocookie.net/witcher/images/3/38/TW3_English_logo.png/revision/latest?cb=20150923154606",
                 icon: "https://vignette.wikia.nocookie.net/witcher/images/a/a0/W3WH_Icon.png/revision/latest?cb=20160710052025",
                 background: "https://i.ytimg.com/vi/En-VsTq30wQ/maxresdefault.jpg",
                 moredata: "etc"
@@ -20,11 +23,13 @@ export default class GamesLibrary extends Component
                 id: 2,
                 name: "Dota 2",
                 icon: "http://cdn.onlinewebfonts.com/svg/img_348221.png",
+                logo: "http://2.bp.blogspot.com/-zQLANHW_hmw/VB1eeb4d-OI/AAAAAAAAAEs/eWIoPuJ39eo/s1600/dota2_logo.png",
                 background: "https://4.bp.blogspot.com/-oYdwqFdrfpY/WlHIkW9tL4I/AAAAAAAABBg/kjtw6LseHao9xVpqc3CZElJo-dBI6BQMQCLcBGAs/s1600/dota2.JPG",
                 moredata: "etc"
             },{
                 id: 3,
                 name: "CS:GO",
+                logo: "https://logodownload.org/wp-content/uploads/2014/09/counter-strike-global-offensive-cs-go-logo.png",
                 icon: "https://cdn170.picsart.com/upscale-238186308048212.png?r1024x1024",
                 background: "http://i.imgur.com/MU2keaB.png",
                 moredata: "etc"
@@ -50,6 +55,7 @@ export default class GamesLibrary extends Component
 
     changeActiveGame = (game_id) => {
         console.log("Changing active game to " + game_id)
+
         //Go to redux and look on our immutable manifest data
         //and seek the id we want
         //for now make a switch case to test
@@ -73,7 +79,7 @@ export default class GamesLibrary extends Component
         return (
         <div className="game-container">
             {/* Games list */}
-            <div className="col s3 games-list">
+            <div className="col s6 games-list">
 				<ul>
                     {this.state && this.state.temporaryListOfGames.length > 0 ? 
                         this.state.temporaryListOfGames.map( (game) => 
@@ -85,13 +91,52 @@ export default class GamesLibrary extends Component
                     : null }
 				</ul>
 			</div>
-
-            <div 
-                style={{backgroundImage: `url(${this.state.background_image})`}}
-                className="col s9 game-content">
-
+            <div
+            style={{backgroundImage: `url(${this.state.background_image})`}}
+            className="col s12 game-content">
+                <div className="col s6 game-info">
+                    <div className="row game-logo">
+                        <div className="glogo-img"></div>
+                    </div>
+                    <div className="row game-play-section">
+                        <Button disabled waves='light'>
+                            {this.state.version}
+                        </Button>
+                        <Button style={{marginLeft: 1, backgroundColor: "green"}} waves='light'>
+                            PLAY {/*The launcher will also download a manifest of languages soon*/}
+                        </Button>
+                    </div>
+                    <div className="row game-news-section">
+                        {/* Render a Slider Component which will be better
+                            receiving the news JSON 
+                            
+                            Create custom one
+                            */}
+                        <NoticeSlider>
+                        </NoticeSlider>
+                    </div>
+                    <div className="footer-bar grey darken-4 row opacity">
+                        <div className="col s4">
+                            <ul className="friends-playing">
+                                <h6 className="">Friends playing this game: </h6>	
+                                <img className="responsive-img footer-friends" src="https://zelda.com.br/material/avatar-oficial-hyrule-warriors-link.jpg"/>
+                                <img className="responsive-img footer-friends" src="https://zelda.com.br/material/avatar-oficial-hyrule-warriors-link.jpg"/>
+                                <img className="responsive-img footer-friends" src="https://zelda.com.br/material/avatar-oficial-hyrule-warriors-link.jpg"/>
+                            </ul>
+                        </div>
+                    
+                        <div className="footer-text2">
+                            <div className="col s4">
+                                <h6>Hours Played:</h6><p> 750 Hours</p>
+                            </div>
+                            <div className="col s6">
+                            <h6>Last Played:</h6> <p>03/09/2018</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-		</div>
+            </div>
         );
       }
 }

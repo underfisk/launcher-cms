@@ -181,24 +181,31 @@ body {
 .games-list ul li img{
 	
 	padding-top: 10px;
+	margin-left: 10px;
 	margin-right: 20px;
 	width: 50px!important;
 	height: 50px!important;
 }
 
-.game-container .footer-bar h6{
+.footer-bar {
+	position: fixed;
+    width: 100%;
+    height: 100px;
+    top: 40em;
+}
+
+.footer-bar h6{
 	color: #757575;
 }
 
-.game-container .footer-bar p{
+.footer-bar p{
 	color: #f5f5f5;
 }
 
-.items-loading{
-	list-style: none;
-	overflow: none;
-	position: relative;
-	top: 7px;
+.footer-friends{
+	width: 50px;
+	height: 50px;
+	padding-left: 3px;
 }
 
 .download-item{
@@ -206,15 +213,136 @@ body {
 }
 
 .game-content {
-	background-image: url("https://i.ytimg.com/vi/En-VsTq30wQ/maxresdefault.jpg");
 	background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
     background-size:  cover;
-	overflow-y: scroll;
 	width: 100vw;
 	height: 100vh;
+	z-index: 0;
 }
+
+.game-info {
+	
+	overflow-y: scroll;
+    width: 53.4em;
+    height: 100%;
+    right: 0px;
+    position: fixed;
+}
+
+.game-logo {
+    position: relative;
+    width: 250px;
+    height: 114px;
+    left: -13em;
+    top: 34px;
+}
+
+.glogo-img {
+	background-image: url("https://vignette.wikia.nocookie.net/witcher/images/3/38/TW3_English_logo.png/revision/latest?cb=20150923154606");
+	background-size:  contain;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	
+}
+
+.game-play-section {
+	position: relative;
+    width: 273px;
+    height: 38px;
+    top: 5em;
+    left: -11em;
+}
+
+.game-news-section {
+	position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 600px;
+    height: auto;
+    bottom: -6em;
+}
+/* 
+.progress-bar-section{
+    position: relative;
+    top: -6em;
+	left: 2em;
+	margin-top: 13em;
+    margin-left: 4em;
+}
+
+.progress-bar-section .progress{
+	width: 80%;
+    top: -18%;
+    position: absolute;
+}
+
+.items-loading{
+    position: relative;
+    right: -38em;
+}
+
+.update-bar{
+	background: grey;
+}
+
+.update-bar .determinate{
+	background-color: green!important;
+} */
+/* width */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #181c25;
+    -webkit-box-shadow: inset 0 0 5px #12171c;
+    box-shadow: inset 0 0 5px #12171c;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border: 1px solid #181c25;
+    background: #232936;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #313a4d;
+}.game-slider .card-content {
+    background: #15161E;
+    color: white;
+}
+
+.game-slider {
+    cursor: default;
+}
+
+.game-slider img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    width: 600px;
+    height: 200px;
+}
+
+.game-slider .card-title:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.game-slider .card-reveal{
+    background: #15161E;
+}
+
 /*
 * Header styles
 */
@@ -287,7 +415,7 @@ body {
 }
 
 /* Top left logo */
-.logo {
+.header .logo {
 	position: fixed;
 	content:url(logo.png?2ec14bd97ab4337220b7e3ce38d2224f);
 	width: 50px; 
@@ -296,8 +424,26 @@ body {
 	margin-top: 25px;
 }
 
+.header .user-core{
+    position: absolute;
+    background: yellow;
+    width: 32em;
+    height: 25.5%;
+    right: 0px;
+}
 
-.leftbar{
+.header .user-core .user-avatar{
+	position: fixed;
+	background: blue;
+	width: 7em;
+    height: 25.5%;
+}
+
+.header .user-core .user-avatar img {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}.leftbar{
 	position: fixed;
 	background: #15161E;
 	background-size: cover;
