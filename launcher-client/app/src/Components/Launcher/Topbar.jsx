@@ -21,7 +21,7 @@ export default class Topbar extends Component
                     <div className="col 3 user-avatar">
                         <img className="responsive-img circle" src={this.state.avatarImgUrl}/>
                     </div>
-                    <div className="col 2 user-info">
+                    <div className="col 2 circle responsive-img user-info">
                         Enigma in a box
                     </div>
                 </div>

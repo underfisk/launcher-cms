@@ -100,3 +100,9 @@
 	height: 100%;
 	position: relative;
 }
+
+.header .user-info {
+	position: fixed;
+    right: 15em;
+	top: 36px;
+}

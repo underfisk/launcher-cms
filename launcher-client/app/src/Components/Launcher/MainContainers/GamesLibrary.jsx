@@ -8,6 +8,7 @@ export default class GamesLibrary extends Component
     constructor(props){
         super(props)
         this.state = {
+            isMounted : false, //filter soon
             background_image: "",
             gamesListCollapsed : false,
             active_game: 1,
@@ -37,8 +38,19 @@ export default class GamesLibrary extends Component
         }
     }
 
+    componentWillMount() {
+        //Here we load the data we need
+        console.log("We need to load data here")
+
+    }
+    componentWillUnmount(){
+        console.log("We are being unmounted")
+        
+    }
+
     componentDidMount(){
         this.changeBackground(1) //default game
+        this.setState({isMounted : true})
     }
 
     changeBackground = (game_id) => {

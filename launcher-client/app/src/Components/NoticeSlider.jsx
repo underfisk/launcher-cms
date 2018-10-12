@@ -8,6 +8,7 @@ export default class NoticeSlider extends Component
         super(props)
 
         this.state = {
+            isMounted: false,
             content : [{
                 image: "https://lh3.googleusercontent.com/-eK2gfdRoPWc/V-JG-qgSS4I/AAAAAAAAAVc/VhD7hyCAZCUDodRJnZD4nXPLSSen0WTZgCHMYBhgL/h250/",
                 title: "Oh yea",
@@ -29,6 +30,10 @@ export default class NoticeSlider extends Component
         }
     }
 
+    componentWillUnmount(){
+        this.setState({isMounted: false})
+    }
+    
     componentDidMount() {
         console.log("Initializing the carousel with interval= " + this.state.interval)
         //Set the default card on position 0 but also start the carousel
@@ -40,6 +45,7 @@ export default class NoticeSlider extends Component
             if (this.state.content.length > 1)
                 this.initializeCarousel()
         }
+        this.setState({isMounted: true})
     }
 
     initializeCarousel() { 
