@@ -13,10 +13,10 @@ export default class Leftbar extends Component
         }
     }
     
-    componentWillUnmount(){
+    /*componentWillUnmount(){
         console.log("Stopping timers")
         this.setState({isMounted = false})
-    }
+    }*/
 
     componentDidMount(){
         console.log("Sliders is mounted")

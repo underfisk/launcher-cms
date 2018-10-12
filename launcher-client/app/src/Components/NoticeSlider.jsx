@@ -85,7 +85,7 @@ export default class NoticeSlider extends Component
 
     render(){
         return (
-            <div className="row game-slider">
+            <div className="game-slider">
                 {this.state && typeof this.state.cardData != 'undefined' ? 
                     <Card className='small'
                         header={

@@ -91,26 +91,27 @@ export default class GamesLibrary extends Component
         return (
         <div className="game-container">
             {/* Games list */}
-            <div className="col s6 games-list">
-				<ul>
-                    {this.state && this.state.temporaryListOfGames.length > 0 ? 
-                        this.state.temporaryListOfGames.map( (game) => 
-                        <li key={game.id} onClick={() => this.changeActiveGame(game.id)} className="truncate avatar game-item">
-                            <img src={game.icon}/>
-                            <span>{game.name}</span>
-                        </li>
-                        )
-                    : null }
-				</ul>
-			</div>
-            <div
+            <Row>
+                <Col s={2} className="games-list">
+                    <ul>
+                        {this.state && this.state.temporaryListOfGames.length > 0 ? 
+                            this.state.temporaryListOfGames.map( (game) => 
+                            <li key={game.id} onClick={() => this.changeActiveGame(game.id)} className="truncate avatar game-item">
+                                <img src={game.icon}/>
+                                <span>{game.name}</span>
+                            </li>
+                            )
+                        : null }
+                    </ul>
+                </Col>
+            <Col s={10}
             style={{backgroundImage: `url(${this.state.background_image})`}}
-            className="col s12 game-content">
-                <div className="col s6 game-info">
-                    <div className="row game-logo">
+            className="game-content">
+                <div className="game-info">
+                    <div className="game-logo">
                         <div className="glogo-img"></div>
                     </div>
-                    <div className="row game-play-section">
+                    <div className="game-play-section">
                         <Button disabled waves='light'>
                             {this.state.version}
                         </Button>
@@ -118,7 +119,7 @@ export default class GamesLibrary extends Component
                             PLAY {/*The launcher will also download a manifest of languages soon*/}
                         </Button>
                     </div>
-                    <div className="row game-news-section">
+                    <div className="game-news-section">
                         {/* Render a Slider Component which will be better
                             receiving the news JSON 
                             
@@ -127,7 +128,7 @@ export default class GamesLibrary extends Component
                         <NoticeSlider>
                         </NoticeSlider>
                     </div>
-                    <div className="footer-bar grey darken-4 row opacity">
+                    <div className="footer-bar grey darken-4 opacity">
                         <div className="col s4">
                             <ul className="friends-playing">
                                 <h6 className="">Friends playing this game: </h6>	
@@ -147,7 +148,8 @@ export default class GamesLibrary extends Component
                         </div>
                     </div>
                 </div>
-            </div>
+            </Col>
+            </Row>
             </div>
         );
       }

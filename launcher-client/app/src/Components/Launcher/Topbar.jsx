@@ -17,14 +17,14 @@ export default class Topbar extends Component
         return (
             <div className="header">
                 <img className="logo" alt="logo"/>
-                <div className="col 6 user-core">
+               {/* <div className="col 6 user-core">
                     <div className="col 3 user-avatar">
                         <img className="responsive-img circle" src={this.state.avatarImgUrl}/>
                     </div>
                     <div className="col 2 circle responsive-img user-info">
                         Enigma in a box
                     </div>
-                </div>
+        </div>*/}
             </div>
         );
       }
