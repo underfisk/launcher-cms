@@ -2,7 +2,8 @@ const electron = require("electron"),
   app = electron.app,
   BrowserWindow = electron.BrowserWindow,
   ipc = electron.ipcMain,
-  session = electron.session
+  session = electron.session,
+  is = require('electron-is')
 
 // Let electron reloads by itself when webpack watches changes in ./app/
 require("electron-reload")(__dirname);
@@ -48,6 +49,58 @@ app.once("ready", () => {
   win.once("ready-to-show", () => {
     console.log("Im ready");
 
+    ipc.on('start-game', (event, args) => {
+      console.log("Veryifing the process.. Starting a process")
+      console.log(args)
+
+      if (is.linux())
+      {
+        console.log("I'm on linux")
+        //start as shell
+
+        const { exec } = require('child_process');
+        exec(args.process_path, (error, stdout, stderr) => {
+          if (error) {
+            console.error(`exec error: ${error}`);
+            return;
+          }
+          console.log(`stdout: ${stdout}`);
+          console.log(`stderr: ${stderr}`);
+        });
+      }
+      else if (is.windows())
+      {
+        console.log("I'm on windows")
+        //execute exe
+      }
+      else if (is.osx())
+      {
+        //execute dmg
+      }
+      else
+      {
+        //We can't start, notify him that we do not
+        //support his current
+      }
+      //fiter soon if is a exe let child = require('child_process').execFile;
+      
+      //let process = require('child_process')
+
+      /*let gameProcess = process.spawn(args.process_path)
+
+      gameProcess.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+      });
+      
+      gameProcess.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`);
+      });
+      
+      gameProcess.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+      });*/
+
+    })
     /*Checking if he has already a session auth.hasSession(session, result => {
       if (result === "yes") {
         //Lets show the dashboard and load his data

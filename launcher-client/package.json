@@ -31,6 +31,7 @@
   "dependencies": {
     "big-integer": "^1.6.34",
     "crypto": "^1.0.1",
+    "electron-is": "^3.0.0",
     "fs": "0.0.1-security",
     "jquery": "^3.3.1",
     "node-rsa": "^1.0.1",

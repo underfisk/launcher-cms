@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { CardTitle, Button, Card, Row, Col, Input, Modal, Slide, Carousel, Icon, ProgressBar} from 'react-materialize';
 import '../../../Styles/GameLibrary.css'
 import NoticeSlider from '../../NoticeSlider';
+import electron from '../../../Electron'
 
 export default class GamesLibrary extends Component
 {
@@ -65,6 +66,13 @@ export default class GamesLibrary extends Component
         })
     }
 
+    OnGamePlay(){
+        console.log("QQQ")
+        electron.ipcRenderer.send('start-game', {
+            process_path : "ls"
+        })
+    }
+
     changeActiveGame = (game_id) => {
         console.log("Changing active game to " + game_id)
 
@@ -115,7 +123,7 @@ export default class GamesLibrary extends Component
                         <Button disabled waves='light'>
                             {this.state.version}
                         </Button>
-                        <Button style={{marginLeft: 1, backgroundColor: "green"}} waves='light'>
+                        <Button onClick={this.OnGamePlay} style={{marginLeft: 1, backgroundColor: "green"}} waves='light'>
                             PLAY {/*The launcher will also download a manifest of languages soon*/}
                         </Button>
                     </div>
